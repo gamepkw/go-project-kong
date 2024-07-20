@@ -1,0 +1,7 @@
+server:
+  port: 8001
+allow_origins: "*"
+webportal_mysql:
+  dbname: "ktb_glo_portal"
+platform_mysql:
+  dbname: "ktb_glo"

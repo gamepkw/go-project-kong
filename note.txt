@@ -1,0 +1,14 @@
+docker build -t go-project-kong-image:1.0 .
+
+docker run -d -p 80:80 --name go-project-kong-container go-project-kong-image:1.0
+
+-project
+--app
+---cmd
+----main.go
+--config
+---secret.env
+
+git remote add origin https://github.com/gamepkw/go-project-kong.git
+git branch -M main
+git push -u origin main
