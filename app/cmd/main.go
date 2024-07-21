@@ -74,7 +74,7 @@ func main() {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		e.Logger.Fatal(e.Start(":8090")) // Start the Echo server
+		e.Logger.Fatal(e.Start(":80")) // Start the Echo server
 	}()
 
 	// Wait for termination signal
