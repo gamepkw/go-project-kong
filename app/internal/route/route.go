@@ -21,6 +21,5 @@ func New(router *echo.Echo, handler handler.Handler) Route {
 func (r *Route) RegisterRoute() {
 
 	apiGroup := r.router.Group("/api")
-	apiGroup.POST("/produce", r.handler.Produce)
-	apiGroup.POST("/consume", r.handler.Consume)
+	apiGroup.POST("/test", r.handler.Test)
 }
