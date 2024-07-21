@@ -12,8 +12,6 @@ import (
 	elastic "main/app/internal/repository/elasticsearch"
 	"main/app/internal/route"
 	"main/app/internal/service"
-	"main/app/pkg/kafka/consumer"
-	"main/app/pkg/kafka/producer"
 	"net"
 	"net/http"
 	"os"
@@ -47,14 +45,14 @@ func main() {
 	// initialize elastic
 	elasticClient := initElastic(conf)
 
-	consumer := consumer.New(conf)
-	producer := producer.New(conf)
+	// consumer := consumer.New(conf)
+	// producer := producer.New(conf)
 
 	// repository := repository.New(mysqlClient, redisClient, elasticClient)
 	db := database.New(mysqlClient)
 	cache := cache.New(redisClient)
 	es := elastic.New(elasticClient)
-	service := service.New(db, cache, es, *consumer, *producer)
+	service := service.New(db, cache, es, nil, nil)
 	handler := handler.New(service)
 	router := route.New(e, handler)
 	router.RegisterRoute()
