@@ -57,18 +57,18 @@ func main() {
 	router := route.New(e, handler)
 	router.RegisterRoute()
 
-	fmt.Println("Run consumer in background")
+	// fmt.Println("Run consumer in background")
 	var wg sync.WaitGroup
 
 	// Start Consumer
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		fmt.Println("Run consumer in background")
-		if err := service.ConsumeMessage(ctx); err != nil {
-			log.Printf("Error consuming messages: %v", err)
-		}
-	}()
+	// wg.Add(1)
+	// go func() {
+	// 	defer wg.Done()
+	// 	fmt.Println("Run consumer in background")
+	// 	if err := service.ConsumeMessage(ctx); err != nil {
+	// 		log.Printf("Error consuming messages: %v", err)
+	// 	}
+	// }()
 
 	// Start Server
 	wg.Add(1)
